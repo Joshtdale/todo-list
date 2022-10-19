@@ -4,24 +4,30 @@
 function List(props){
 
 function Todo(){
-    // console.log(props.storage)
+    console.log([...props.storage.keys()])
     return (
         <div>
-            <div className="card overflow-auto">
-                        {props.storage.map((item) => {
+            <div className="overflow-auto">
+                        {/* {props.storage.map((item) => {
 
                             return (
-                                <>
-                                    <div className="row">
-                                        <div className="col">
+                                <div className="card">
+                                    <div className="row text-center">
+                                        <div className="col m-2">
+                                            <button className="btn rounded-circle border-success"></button>
+                                        </div>
+                                        <div className="col m-2">
                                             <h3>{item}</h3>
                                         </div>
+                                        <div className="col m-2">
+                                            <button className="btn rounded-circle border-danger"></button>
+                                        </div>
                                     </div>
-                                </>
+                                </div>
 
                             )
                         })
-                        }
+                        } */}
                     </div>
         </div>
     )
