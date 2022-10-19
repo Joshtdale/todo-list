@@ -11,11 +11,11 @@ root.render(
       <div className="card h-50 w-50 shadow">
         <div className="row">
           <div className="col">
-            <h1 className='text-center'>To-do List</h1>
+            <h1 className='text-center m-3'>To-do List</h1>
           </div>
         </div>
 
-        <div className="row">
+        <div className="row mx-3">
           <div className="col">
             <App />
 
