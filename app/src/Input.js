@@ -6,7 +6,7 @@ const input = document.getElementById('input')
     function pushToStorage(){
         console.log('clicked')
         // console.log(props.value)
-        props.storage.push(props.value);
+        props.storage(props.value);
         console.log(props.storage)
         // console.log(input.value)
         input.value = '';
