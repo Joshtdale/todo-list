@@ -5,22 +5,22 @@ import Input from './Input';
 import List from './List';
 import BottomNav from './BottomNav';
 
+
+let storage = []
+console.log(storage)
 function App() {
 
     const [page, setPage] = useState('To-do')
+    const [value, setValue] = useState('')
+    // console.log(value)
 
     return (
         <div>
-            {/* <div className="row">
-                <div className="col">
-                    <h1 className='text-center text-primary'>Stuff</h1>
-                </div>
-            </div> */}
 
             <div className="row vh-75">
                 <div className="col">
-                    <Input />
-                    <List page={page}/>
+                    <Input setValue={setValue} value={value} storage={storage}/>
+                    <List page={page} storage={storage}/>
                 </div>
             </div>
             <div className="row">
