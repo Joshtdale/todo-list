@@ -7,7 +7,7 @@ import BottomNav from './BottomNav';
 
 function App() {
 
-    const [page, setPage] = useState('To-do List')
+    const [page, setPage] = useState('To-do')
 
     return (
         <div>
@@ -17,25 +17,18 @@ function App() {
                 </div>
             </div> */}
 
-            <div className="row">
+            <div className="row vh-75">
                 <div className="col">
                     <Input />
-                    <List />
-                    <BottomNav />
+                    <List page={page}/>
                 </div>
             </div>
-
-            {/* <div className="row">
-                <div className="col">
-
-                </div>
-            </div>
-
             <div className="row">
                 <div className="col">
-
+                    <BottomNav setPage={setPage}/>
                 </div>
-            </div> */}
+            </div>
+
         </div>
     )
 }
