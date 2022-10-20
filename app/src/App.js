@@ -13,7 +13,7 @@ function App() {
     // let arr = [{storage}]
     console.log(storage)
     const [page, setPage] = useState(false)
-    // console.log(value)
+    console.log(storage.length)
 
     // function getTime() {
         const time = new Date()
@@ -40,7 +40,7 @@ function App() {
             <div className="row vh-75">
                 <div className="col">
                     <Input storage={setStorage} time={idTime}/>
-                    <List page={page} storage={storage}/>
+                    <List page={page} storage={storage} setStorage={setStorage}/>
                 </div>
             </div>
             <div className="row">
