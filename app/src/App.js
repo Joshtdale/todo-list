@@ -12,7 +12,7 @@ function App() {
     const [storage, setStorage] = useState([])
     // let arr = [{storage}]
     console.log(storage)
-    const [page, setPage] = useState('To-do')
+    const [page, setPage] = useState(false)
     // console.log(value)
 
     // function getTime() {

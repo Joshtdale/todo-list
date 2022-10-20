@@ -3,7 +3,15 @@
 
 function List(props) {
 
-    const todoItems = props.storage.filter((item) => item.done === false)
+    // let filter = props.page
+    let todoItems = ''
+    
+    if (props.page === 'All'){
+        todoItems = props.storage;
+    } else {
+        todoItems = props.storage.filter((item) => item.completed === props.page)
+    }
+    // console.log(filter)
     // .map((item) => 
     //     <div className="card" key={item.id}>
     //         <div className="row text-center">
@@ -29,7 +37,6 @@ function List(props) {
         return (
             <div>
                 <div className="overflow-auto">
-                    {/* {todoItems} */}
 
                     {todoItems.map((item) => {
 
@@ -40,7 +47,7 @@ function List(props) {
                                             <button className="btn rounded-circle border-success"></button>
                                         </div>
                                         <div className="col m-2">
-                                            <h3>{item.text}</h3>
+                                            <p>{item.text}</p>
                                         </div>
                                         <div className="col m-2">
                                             <button className="btn rounded-circle border-danger"></button>
@@ -56,26 +63,26 @@ function List(props) {
         )
     }
 
-    function Completed() {
-        return (
-            <div>
-                <h3 className="card">Completed</h3>
-                <h3 className="card">Completed</h3>
-                <h3 className="card">Completed</h3>
-            </div>
-        )
-    }
+    // function Completed() {
+    //     return (
+    //         <div>
+    //             <h3 className="card">Completed</h3>
+    //             <h3 className="card">Completed</h3>
+    //             <h3 className="card">Completed</h3>
+    //         </div>
+    //     )
+    // }
 
-    function All() {
-        return (
-            <div>
-                <h3>To-do</h3>
-                <Todo />
-                <h3>Completed</h3>
-                <Completed />
-            </div>
-        )
-    }
+    // function All() {
+    //     return (
+    //         <div>
+    //             <h3>To-do</h3>
+    //             <Todo />
+    //             <h3>Completed</h3>
+    //             <Completed />
+    //         </div>
+    //     )
+    // }
 
 
 
@@ -85,9 +92,10 @@ function List(props) {
     return (
         <div className="card border-light">
             {/* {todoItems} */}
-            {props.page == 'To-do' && <Todo />}
-            {props.page == 'Completed' && <Completed />}
-            {props.page == 'All' && <All />}
+            <Todo />
+            {/* {props.page == false && <Todo />} */}
+            {/* {props.page == true && <Completed />} */}
+            {/* {props.page == 'All' && <All />} */}
         </div>
     )
 }

@@ -16,7 +16,7 @@ function Input(props) {
                 return [...previousTodos, {
                     id: props.time,
                     text: value,
-                    done: false,
+                    completed: false,
                 },]
             })
             // console.log(props.storage);
