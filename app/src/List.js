@@ -1,23 +1,63 @@
 
 
 
-function List(props){
+function List(props) {
 
-function Todo(){
-    console.log([...props.storage.keys()])
-    return (
-        <div>
-            <div className="overflow-auto">
-                        {/* {props.storage.map((item) => {
+    // let filter = props.page
+    let todoItems = ''
+    let leftToDo = props.storage.filter((item) => item.completed === false)
+    
+    if (props.page === 'All'){
+        todoItems = props.storage;
+    } else {
+        todoItems = props.storage.filter((item) => item.completed === props.page)
+    }
+
+
+    function complete(item, i){
+        // let key = item.id
+        // console.log(c)
+        // item.completed = true
+        // console.log(props.storage[i])
+        // props.setStorage(previousTodos => {
+        //     return [...previousTodos, {
+        //         id: item.id,
+        //         text: item.text,
+        //         completed: true,
+        //     },]
+            const newTodo = [...props.storage]
+            const id = newTodo.find(todo => todo.id === item)
+            id.completed = !id.completed
+            props.setStorage(newTodo)
+            // props.storage[i].completed = true;
+            // props.setStorage(previousTodos => {
+            //         return [...previousTodos]
+        // })
+
+
+    }
+
+    function Todo() {
+        // console.log(props.storage[0].text)
+        return (
+            <div>
+                <div className="row">
+                        <div className="col text-center">
+                            <p>Left to do: {leftToDo.length}</p>
+                        </div>
+                    </div>
+                <div className="overflow-auto">
+
+                    {todoItems.map((item, i) => {
 
                             return (
-                                <div className="card">
+                                <div className="card" key={item.id}>
                                     <div className="row text-center">
                                         <div className="col m-2">
-                                            <button className="btn rounded-circle border-success"></button>
+                                            <button onClick={() => complete(item.id, i)} className="btn rounded-circle border-success"></button>
                                         </div>
                                         <div className="col m-2">
-                                            <h3>{item}</h3>
+                                            <p>{item.text}</p>
                                         </div>
                                         <div className="col m-2">
                                             <button className="btn rounded-circle border-danger"></button>
@@ -27,43 +67,17 @@ function Todo(){
 
                             )
                         })
-                        } */}
-                    </div>
-        </div>
-    )
-}
-
-function Completed(){
-    return (
-        <div>
-            <h3 className="card">Completed</h3>
-            <h3 className="card">Completed</h3>
-            <h3 className="card">Completed</h3>
-        </div>
-    )
-}
-
-function All(){
-    return (
-        <div>
-            <h3>To-do</h3>
-            <Todo />
-            <h3>Completed</h3>
-            <Completed />
-        </div>
-    )
-}
+                        }
+                </div>
+            </div>
+        )
+    }
 
 
-
-
-    // console.log(props.page)
 
     return (
         <div className="card border-light">
-            {props.page == 'To-do' && <Todo />}
-            {props.page == 'Completed' && <Completed />}
-            {props.page == 'All' && <All/>}
+            <Todo />
         </div>
     )
 }
