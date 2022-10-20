@@ -4,14 +4,14 @@
 function List(props){
 
 function Todo(){
-    console.log([...props.storage.keys()])
+    // console.log(props.storage[0].text)
     return (
         <div>
             <div className="overflow-auto">
                         {/* {props.storage.map((item) => {
 
                             return (
-                                <div className="card">
+                                <div className="card" id="item.id">
                                     <div className="row text-center">
                                         <div className="col m-2">
                                             <button className="btn rounded-circle border-success"></button>

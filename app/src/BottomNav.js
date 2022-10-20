@@ -2,10 +2,13 @@ import './BottomNav.css';
 
 
 function BottomNav(props){
+    
     function navClick(page){
         // let name = this.innerHTML
         props.setPage(page)
     }
+
+
     return (
         <div className='navContainer'>
             <div className="row text-center">
