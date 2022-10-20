@@ -13,15 +13,21 @@ function List(props) {
     }
 
 
-    function complete(item){
+    function complete(item, i){
+        let id = item.id
         // console.log(c)
         // item.completed = true
-        props.setStorage(previousTodos => {
-            return [ {
-                id: item.id,
-                text: item.text,
-                completed: true,
-            },]
+        // console.log(props.storage[i])
+        // props.setStorage(previousTodos => {
+        //     return [...previousTodos, {
+        //         id: item.id,
+        //         text: item.text,
+        //         completed: true,
+        //     },]
+
+            props.storage[i].completed = true
+            props.setStorage(previousTodos => {
+                    return [...previousTodos]
         })
 
 
@@ -38,13 +44,13 @@ function List(props) {
                     </div>
                 <div className="overflow-auto">
 
-                    {todoItems.map((item) => {
+                    {todoItems.map((item, i) => {
 
                             return (
                                 <div className="card" key={item.id}>
                                     <div className="row text-center">
                                         <div className="col m-2">
-                                            <button onClick={() => complete(item)} className="btn rounded-circle border-success"></button>
+                                            <button onClick={() => complete(item, i)} className="btn rounded-circle border-success"></button>
                                         </div>
                                         <div className="col m-2">
                                             <p>{item.text}</p>
