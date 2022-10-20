@@ -10,26 +10,19 @@ function Input(props) {
 
     function pushToStorage() {
         console.log('clicked');
-        // console.log(props.value)
-        // props.storage([
-        //     ...,
-        //     {
-        //         id: props.time,
-        //         text: value,
-        //         done: false,
-        //     },
-        // ]);
-
-        props.storage(previousTodos => {
-            return [...previousTodos, {
-                id: props.time,
-                text: value,
-                done: false,
-            },]
-        })
-        // console.log(props.storage);
-        // console.log(input.value)
-        input.value = '';
+        if (input.value !== '') {
+            // console.log('working')
+            props.storage(previousTodos => {
+                return [...previousTodos, {
+                    id: props.time,
+                    text: value,
+                    done: false,
+                },]
+            })
+            // console.log(props.storage);
+            // console.log(input.value)
+            input.value = '';
+        }
     }
 
     return (
