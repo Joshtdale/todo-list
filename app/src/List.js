@@ -5,6 +5,7 @@ function List(props) {
 
     // let filter = props.page
     let todoItems = ''
+    let leftToDo = props.storage.filter((item) => item.completed === false)
     
     if (props.page === 'All'){
         todoItems = props.storage;
@@ -14,7 +15,7 @@ function List(props) {
 
 
     function complete(item, i){
-        let id = item.id
+        // let key = item.id
         // console.log(c)
         // item.completed = true
         // console.log(props.storage[i])
@@ -24,11 +25,14 @@ function List(props) {
         //         text: item.text,
         //         completed: true,
         //     },]
-
-            props.storage[i].completed = true
-            props.setStorage(previousTodos => {
-                    return [...previousTodos]
-        })
+            const newTodo = [...props.storage]
+            const id = newTodo.find(todo => todo.id === item)
+            id.completed = !id.completed
+            props.setStorage(newTodo)
+            // props.storage[i].completed = true;
+            // props.setStorage(previousTodos => {
+            //         return [...previousTodos]
+        // })
 
 
     }
@@ -39,7 +43,7 @@ function List(props) {
             <div>
                 <div className="row">
                         <div className="col text-center">
-                            <p>Left to do: {todoItems.length}</p>
+                            <p>Left to do: {leftToDo.length}</p>
                         </div>
                     </div>
                 <div className="overflow-auto">
@@ -50,7 +54,7 @@ function List(props) {
                                 <div className="card" key={item.id}>
                                     <div className="row text-center">
                                         <div className="col m-2">
-                                            <button onClick={() => complete(item, i)} className="btn rounded-circle border-success"></button>
+                                            <button onClick={() => complete(item.id, i)} className="btn rounded-circle border-success"></button>
                                         </div>
                                         <div className="col m-2">
                                             <p>{item.text}</p>
@@ -73,11 +77,7 @@ function List(props) {
 
     return (
         <div className="card border-light">
-            {/* {todoItems} */}
             <Todo />
-            {/* {props.page == false && <Todo />} */}
-            {/* {props.page == true && <Completed />} */}
-            {/* {props.page == 'All' && <All />} */}
         </div>
     )
 }
