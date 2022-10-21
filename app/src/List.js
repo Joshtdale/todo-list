@@ -5,6 +5,7 @@ function List(props) {
 
     // let filter = props.page
     let todoItems = ''
+
     let leftToDo = props.storage.filter((item) => item.completed === false)
 
     if (props.page === 'All') {
@@ -23,12 +24,7 @@ function List(props) {
 
     }
 
-    // function deleted(item){
-    //     const completedItem = [...props.storage]
-    //         const id = completedItem.find(todo => todo.id === item)
-    //         id.completed = 'inactive';
-    //         props.setStorage(completedItem)
-    // }
+
     function handleRemoveItem(id) {
         const leftOver = props.storage.filter((item) => item.id !== id)
         props.setStorage(leftOver)
