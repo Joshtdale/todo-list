@@ -14,27 +14,20 @@ function List(props) {
     }
 
 
-    function complete(item, i){
-        // let key = item.id
-        // console.log(c)
-        // item.completed = true
-        // console.log(props.storage[i])
-        // props.setStorage(previousTodos => {
-        //     return [...previousTodos, {
-        //         id: item.id,
-        //         text: item.text,
-        //         completed: true,
-        //     },]
-            const newTodo = [...props.storage]
-            const id = newTodo.find(todo => todo.id === item)
+    function complete(item){
+
+            const completedItem = [...props.storage]
+            const id = completedItem.find(todo => todo.id === item)
             id.completed = !id.completed
-            props.setStorage(newTodo)
-            // props.storage[i].completed = true;
-            // props.setStorage(previousTodos => {
-            //         return [...previousTodos]
-        // })
+            props.setStorage(completedItem)
 
+    }
 
+    function deleted(item){
+        const completedItem = [...props.storage]
+            const id = completedItem.find(todo => todo.id === item)
+            id.completed = 'inactive';
+            props.setStorage(completedItem)
     }
 
     function Todo() {
@@ -48,19 +41,26 @@ function List(props) {
                     </div>
                 <div className="overflow-auto">
 
-                    {todoItems.map((item, i) => {
-
-                            return (
-                                <div className="card" key={item.id}>
+                    {todoItems.map((item) => {
+                    let border = 'card border-success'
+                        // console.log()
+                        if (item.completed === true){
+                            border = 'card border-danger mb-2'
+                        } else {
+                            border = 'card border-success mb-2'
+                        }
+                        
+                        return (
+                                <div className={border} key={item.id}>
                                     <div className="row text-center">
                                         <div className="col m-2">
-                                            <button onClick={() => complete(item.id, i)} className="btn rounded-circle border-success"></button>
+                                            <button onClick={() => complete(item.id)} className="h-50 btn rounded-circle border-success mt-2"></button>
                                         </div>
                                         <div className="col m-2">
                                             <p>{item.text}</p>
                                         </div>
                                         <div className="col m-2">
-                                            <button className="btn rounded-circle border-danger"></button>
+                                            <button onClick={() => deleted(item.id)} className="h-50 btn rounded-circle border-danger mt-2"></button>
                                         </div>
                                     </div>
                                 </div>
@@ -76,7 +76,7 @@ function List(props) {
 
 
     return (
-        <div className="card border-light">
+        <div className="card h-75 border-light overflow-auto">
             <Todo />
         </div>
     )
