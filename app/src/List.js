@@ -47,7 +47,7 @@ function List(props) {
                         let greenbtn = 'h-50 btn rounded-circle border-success mt-2 bg-success'
 
                         if (item.completed === true) {
-                            border = 'card border-danger mb-2'
+                            border = 'card border-danger opacity-75 mb-2'
                             textDecoration = "text-decoration-line-through"
                             greenbtn = 'h-50 btn rounded-circle border-success mt-2 disabled bg-success opacity-10'
                         } else {
