@@ -18,9 +18,9 @@ function App() {
         localStorage.setItem('list', JSON.stringify(storage))
     }, [storage]);
 
-    console.log(storage)
+    // console.log(storage)
     const [page, setPage] = useState(false)
-    console.log(storage.length)
+    // console.log(storage.length)
 
     // function getTime() {
     const time = new Date()
@@ -52,7 +52,7 @@ function App() {
             </div>
             <div className="row">
                 <div className="col">
-                    <BottomNav setPage={setPage} />
+                    <BottomNav setPage={setPage} storage={storage} setStorage={setStorage} />
                 </div>
             </div>
 
