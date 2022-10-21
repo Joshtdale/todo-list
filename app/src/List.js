@@ -44,12 +44,12 @@ function List(props) {
                     {todoItems.map((item) => {
                         let border = 'card border-success'
                         let textDecoration = ''
-                        let greenbtn = 'h-50 btn rounded-circle border-success mt-2'
+                        let greenbtn = 'h-50 btn rounded-circle border-success mt-2 bg-success'
                         
                         if (item.completed === true) {
                             border = 'card border-danger mb-2'
                             textDecoration = "text-decoration-line-through"
-                            greenbtn = 'h-50 btn rounded-circle border-success mt-2 disabled opacity-10'
+                            greenbtn = 'h-50 btn rounded-circle border-success mt-2 disabled bg-success opacity-10'
                         } else {
                             border = 'card border-success mb-2'
                         }
@@ -64,7 +64,7 @@ function List(props) {
                                         <p className={textDecoration} >{item.text}</p>
                                     </div>
                                     <div className="col m-2">
-                                        <button onClick={() => handleRemoveItem(item.id)} className="h-50 btn rounded-circle border-danger mt-2"></button>
+                                        <button onClick={() => handleRemoveItem(item.id)} className="h-50 btn rounded-circle border-danger bg-danger mt-2"></button>
                                     </div>
                                 </div>
                             </div>
