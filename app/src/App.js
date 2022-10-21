@@ -4,6 +4,7 @@ import React from 'react';
 import Input from './Input';
 import List from './List';
 import BottomNav from './BottomNav';
+import './app.css'
 // var clock = ''
 
 function App() {
@@ -37,7 +38,7 @@ function App() {
                 </div>
             </div> */}
 
-            <div className="row vh-75">
+            <div className="row listHeight overflow-auto">
                 <div className="col">
                     <Input storage={setStorage} time={idTime}/>
                     <List page={page} storage={storage} setStorage={setStorage}/>

@@ -8,6 +8,10 @@ function BottomNav(props){
         props.setPage(page)
     }
 
+    // function completeAll(){
+    //     console.log()
+    // }
+
 
     return (
         <div className='navContainer'>
