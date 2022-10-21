@@ -45,7 +45,7 @@ function List(props) {
                         let border = 'card border-success'
                         let textDecoration = ''
                         let greenbtn = 'h-50 btn rounded-circle border-success mt-2 bg-success'
-                        
+
                         if (item.completed === true) {
                             border = 'card border-danger mb-2'
                             textDecoration = "text-decoration-line-through"

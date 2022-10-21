@@ -7,9 +7,9 @@ import './app.css'
 // var clock = ''
 
 function App() {
-    
-    
-    
+
+
+
     const [storage, setStorage] = useState((() => {
         return JSON.parse(localStorage.getItem("list")) || [];
     }))
@@ -18,9 +18,7 @@ function App() {
         localStorage.setItem('list', JSON.stringify(storage))
     }, [storage]);
 
-    // console.log(storage)
     const [page, setPage] = useState(false)
-    // console.log(storage.length)
 
     // function getTime() {
     const time = new Date()
@@ -30,7 +28,7 @@ function App() {
     //     var sec = time.getSeconds()
     //     clock.innerText = `${hrs}` + ':' + `${min}` + ':' + `${sec}`
     //     console.log(clock)
-    console.log(idTime)
+    // console.log(idTime)
     // console.log(time)
     // }
 

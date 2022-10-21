@@ -3,8 +3,8 @@ import './BottomNav.css';
 
 function BottomNav(props) {
 
-const todoStuff = props.storage.filter((item) => item.completed === false)
-const completedStuff = props.storage.filter((item) => item.completed === true)
+    const todoStuff = props.storage.filter((item) => item.completed === false)
+    const completedStuff = props.storage.filter((item) => item.completed === true)
 
     function navClick(page) {
         props.setPage(page)
@@ -12,7 +12,6 @@ const completedStuff = props.storage.filter((item) => item.completed === true)
 
     function completeOrRestore(filter) {
         filter.forEach(element => {
-            // console.log(element.id)
             const completedItem = [...props.storage]
             const id = completedItem.find(todo => todo.id === element.id)
             id.completed = !id.completed
@@ -20,15 +19,6 @@ const completedStuff = props.storage.filter((item) => item.completed === true)
 
         });
     }
-
-    // function restore() {
-    //     completedStuff.forEach(element => {
-    //         const completedItem = [...props.storage]
-    //         const id = completedItem.find(todo => todo.id === element.id)
-    //         id.completed = !id.completed
-    //         props.setStorage(completedItem)
-    //     });
-    // }
 
 
     return (
@@ -46,10 +36,10 @@ const completedStuff = props.storage.filter((item) => item.completed === true)
             </div>
             <div className="row text-center">
                 <div className="col">
-                    <button className="btn btn-light w-100 opacity-75" onClick={() => {completeOrRestore(todoStuff)}}>Complete all</button>
+                    <button className="btn btn-light w-100 opacity-75" onClick={() => { completeOrRestore(todoStuff) }}>Complete all</button>
                 </div>
                 <div className="col">
-                    <button className="btn btn-light w-100 opacity-75" onClick={() => {completeOrRestore(completedStuff)}}>Restore</button>
+                    <button className="btn btn-light w-100 opacity-75" onClick={() => { completeOrRestore(completedStuff) }}>Restore</button>
                 </div>
             </div>
         </div>

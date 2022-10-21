@@ -1,17 +1,14 @@
 import { useState } from 'react';
 
 function Input(props) {
-    // console.log(props.time)
     const [value, setValue] = useState('')
 
 
-    // let nextId = 1;
     const input = document.getElementById('input')
 
     function pushToStorage() {
-        console.log('clicked');
+        // console.log('clicked');
         if (input.value !== '') {
-            // console.log('working')
             props.storage(previousTodos => {
                 return [...previousTodos, {
                     id: props.time,
@@ -19,8 +16,7 @@ function Input(props) {
                     completed: false,
                 },]
             })
-            // console.log(props.storage);
-            // console.log(input.value)
+
             input.value = '';
         }
     }
