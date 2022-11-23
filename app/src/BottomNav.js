@@ -6,9 +6,9 @@ function BottomNav(props) {
     const todoStuff = props.storage.filter((item) => item.completed === false)
     const completedStuff = props.storage.filter((item) => item.completed === true)
 
-    function navClick(page) {
-        props.setPage(page)
-    }
+    // function navClick(page) {
+    //     props.setPage(page)
+    // }
 
     function completeOrRestore(filter) {
         filter.forEach(element => {
@@ -22,24 +22,24 @@ function BottomNav(props) {
 
 
     return (
-        <div className='navContainer'>
-            <div className="row text-center">
-                <div className="col">
-                    <button className="btn btn-light w-100 opacity-75" onClick={() => { navClick(false) }}>To-do</button>
+        <div className='navContainer mt-5'>
+            {/* <div className="row text-center">
+                <div className="col btn-group mr-2" role="group">
+                    <button className="btn btn-secondary w-100 opacity-75" onClick={() => { navClick(false) }} type="button">To-do</button>
                 </div>
                 <div className="col">
-                    <button className="btn btn-light w-100 opacity-75" onClick={() => { navClick(true) }}>Completed</button>
+                    <button className="btn btn-secondary w-100 opacity-75" onClick={() => { navClick(true) }} type="button">Completed</button>
                 </div>
                 <div className="col">
-                    <button className="btn btn-light w-100 opacity-75" onClick={() => { navClick('All') }}>All</button>
+                    <button className="btn btn-secondary w-100 opacity-75" onClick={() => { navClick('All') }} type="button">All</button>
                 </div>
-            </div>
-            <div className="row text-center">
+            </div> */}
+            <div className="row mt-5 text-center">
                 <div className="col">
-                    <button className="btn btn-light w-100 opacity-75" onClick={() => { completeOrRestore(todoStuff) }}>Complete all</button>
+                    <button className="btn btn-secondary w-100 opacity-75" onClick={() => { completeOrRestore(todoStuff) }}>Complete all</button>
                 </div>
                 <div className="col">
-                    <button className="btn btn-light w-100 opacity-75" onClick={() => { completeOrRestore(completedStuff) }}>Restore</button>
+                    <button className="btn btn-secondary w-100 opacity-75" onClick={() => { completeOrRestore(completedStuff) }}>Restore</button>
                 </div>
             </div>
         </div>
