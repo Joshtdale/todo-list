@@ -64,9 +64,9 @@ function List(props) {
                                 <div className="row text-center">
                                     <div className="col m-2 d-flex justify-content-center align-items-center">
                                         {/* <button onClick={() => complete(item.id)} className={greenbtn}></button> */}
-                                        <div class="form-check">
-                                            <input onClick={() => complete(item.id)} class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></input>
-                                            {/* <label class="form-check-label" for="flexCheckDefault">
+                                        <div className="form-check">
+                                            <input onClick={() => complete(item.id)} className="form-check-input" type="checkbox" value="" id="flexCheckDefault"></input>
+                                            {/* <label className="form-check-label" for="flexCheckDefault">
                                                     Default checkbox
                                                 </label> */}
                                         </div>
@@ -75,7 +75,7 @@ function List(props) {
                                         <p className={textDecoration} >{item.text}</p>
                                     </div>
                                     <div className="col m-2 d-flex justify-content-center align-items-center">
-                                        <i onClick={() => handleRemoveItem(item.id)}><img src={trash} className="btn"></img></i>
+                                        <i onClick={() => handleRemoveItem(item.id)}><img src={trash} alt="delete" className="btn"></img></i>
                                     </div>
                                 </div>
                             </div>
