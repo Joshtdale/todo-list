@@ -32,7 +32,7 @@ function Input(props) {
         <div className="input-group mb-3">
             <input onChange={(e) => setValue(e.target.value)} onKeyDown={handleKeyDown} id="input" type="text" className="form-control" placeholder="Add something to your todo list" aria-label="Recipient's username" aria-describedby="basic-addon2"></input>
             <div className="input-group-append">
-                <button onClick={pushToStorage} className="btn btn-outline-secondary" type="button">Create</button>
+                <button onClick={pushToStorage} className="btn opacity-75 bg-secondary text-light" type="button">Create</button>
             </div>
         </div>
     )

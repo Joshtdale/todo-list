@@ -66,9 +66,6 @@ function List(props) {
                                         {/* <button onClick={() => complete(item.id)} className={greenbtn}></button> */}
                                         <div className="form-check">
                                             <input onClick={() => complete(item.id)} className="form-check-input" type="checkbox" value="" id="flexCheckDefault"></input>
-                                            {/* <label className="form-check-label" for="flexCheckDefault">
-                                                    Default checkbox
-                                                </label> */}
                                         </div>
                                     </div>
                                     <div className="col m-2">
@@ -91,7 +88,7 @@ function List(props) {
 
 
     return (
-        <div className="card h-75 border-light overflow-auto">
+        <div className="card h-50 border-light overflow-auto">
             <Todo />
         </div>
     )
